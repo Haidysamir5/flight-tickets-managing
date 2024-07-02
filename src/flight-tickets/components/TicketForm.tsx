@@ -10,14 +10,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { number, object, string } from "yup";
-import FlightFormInputs from "../utils/FlightFormInputs";
-import { formatDate } from "@/helpers";
+import flightFormFields from "../utils/flightFormFields";
 import { FlightItemType } from "../types";
-import {
-  createFlightTicket,
-  editFlightTicket,
-  getFlightTickets,
-} from "../apis";
+import { createFlightTicket, editFlightTicket } from "../apis";
 import { useEffect } from "react";
 
 let ticketSchema = object().shape({
@@ -91,7 +86,7 @@ export default function TicketForm({
               An error occurred: {createTicketMutation.error.message}
             </Typography>
           ) : null}
-          {FlightFormInputs.map((input) => {
+          {flightFormFields.map((input) => {
             return (
               <Controller
                 key={input.name}
