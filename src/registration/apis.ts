@@ -1,4 +1,4 @@
-import { FormDataType } from "@/helpers/type";
+import { FormDataType } from "@/helpers/types";
 
 const BASE_URL = "http://localhost:3009";
 const headers = { "Content-type": "application/json" };

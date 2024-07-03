@@ -1,4 +1,4 @@
-import { UserType } from "@/helpers/type";
+import { UserType } from "@/helpers/types";
 
 export type AuthResponseType =
   | {

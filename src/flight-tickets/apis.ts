@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost:3009/tickets";
 const headers = { "Content-type": "application/json" };
 
 export const createFlightTicket = async (
-  ticket: Omit<FlightItemType, "id">
+  ticket: Omit<FlightItemType, "id">,
 ): Promise<FlightItemType> => {
   const body = JSON.stringify(ticket);
   const method = "POST";
@@ -18,7 +18,7 @@ export const getFlightTickets = async () => {
 };
 
 export const editFlightTicket = async (
-  ticket: FlightItemType
+  ticket: FlightItemType,
 ): Promise<FlightItemType> => {
   const body = JSON.stringify(ticket);
   const method = "PUT";

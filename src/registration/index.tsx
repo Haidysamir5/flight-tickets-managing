@@ -6,7 +6,7 @@ import registerFormFields from "./registerFields";
 import { registerUser } from "./apis";
 import AuthForm from "@/components/AuthForm";
 
-let registerSchema = object().shape({
+const registerSchema = object().shape({
   fullName: string().required(),
   email: string()
     .lowercase()

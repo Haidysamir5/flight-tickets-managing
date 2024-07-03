@@ -2,7 +2,6 @@ import {
   Button,
   CircularProgress,
   Grid,
-  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
@@ -15,7 +14,7 @@ import { FlightItemType } from "../types";
 import { createFlightTicket, editFlightTicket } from "../apis";
 import { useEffect } from "react";
 
-let ticketSchema = object().shape({
+const ticketSchema = object().shape({
   code: string().required(),
   capacity: number().positive().integer().required(),
   date: string().required(),
@@ -40,7 +39,7 @@ export default function TicketForm({
       queryClient.setQueryData(
         ["tickets"],
         (prevTickets: FlightItemType[] | undefined) =>
-          prevTickets ? [data, ...prevTickets] : [data]
+          prevTickets ? [data, ...prevTickets] : [data],
       );
       if (onFormSuccess) onFormSuccess("ticket is added successfully");
     },

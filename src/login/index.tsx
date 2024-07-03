@@ -7,7 +7,7 @@ import { loginUser } from "./apis";
 import loginFormFields from "./formFields";
 import AuthForm from "@/components/AuthForm";
 
-let schema = object().shape({
+const schema = object().shape({
   email: string()
     .lowercase()
     .trim()

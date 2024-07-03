@@ -28,15 +28,13 @@ export default function FlightTickets() {
   const deleteTicketMutation = useMutation({
     mutationFn: deleteFlightTicket,
     onSuccess: (deletedId) => {
-      // queryClient.prefetchQuery({
-      //   queryKey: ["tickets"],
-      // });
       queryClient.setQueryData(
         ["tickets"],
         (prevTickets: FlightItemType[] | undefined) =>
-          prevTickets?.filter((ticket) => ticket.id != deletedId) || prevTickets
+          prevTickets?.filter((ticket) => ticket.id !== deletedId) ||
+          prevTickets,
       );
-      setSuccessMessage(`ticket  is deleted successfully`);
+      setSuccessMessage("ticket  is deleted successfully");
     },
   });
 

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { ModalProps } from "./types";
-import { BoxStyle } from "./styles";
+import { boxStyle } from "./styles";
 
 export default function Modal({
   title,
@@ -37,7 +37,7 @@ export default function Modal({
         }}
       >
         <Fade in={open}>
-          <Box sx={BoxStyle}>
+          <Box sx={boxStyle}>
             <Grid direction="column" className="modal-content" container>
               <Grid
                 direction="row"
@@ -47,7 +47,7 @@ export default function Modal({
                 container
                 alignItems="center"
                 sx={{
-                  borderBottom: `1px solid secondary.main`,
+                  borderBottom: "1px solid secondary.main",
                 }}
               >
                 {title && <Typography>{title}</Typography>}
@@ -67,7 +67,7 @@ export default function Modal({
                 container
                 sx={{
                   padding: 2,
-                  borderBottom: `1px solid secondary`,
+                  borderBottom: "1px solid secondary",
                   maxHeight: "60vh",
                   overflow: bodyOverFlow || "auto",
                 }}

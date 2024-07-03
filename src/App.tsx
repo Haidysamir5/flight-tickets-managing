@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
 
 import theme from "./theme";
@@ -24,10 +18,10 @@ const queryClient = new QueryClient({
 });
 
 queryClient.setQueryData(["accessToken"], () =>
-  localStorage.getItem("accessToken")
+  localStorage.getItem("accessToken"),
 );
 queryClient.setQueryData(["user"], () =>
-  JSON.parse(localStorage.getItem("user") ?? "")
+  JSON.parse(localStorage.getItem("user") ?? ""),
 );
 
 function App() {

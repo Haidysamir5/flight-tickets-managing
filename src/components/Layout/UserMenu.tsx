@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button, Grid, Menu, MenuItem, useTheme } from "@mui/material";
+import { Button, Grid, MenuItem, useTheme } from "@mui/material";
 import { useQueryClient } from "@tanstack/react-query";
-import { UserType } from "@/helpers/type";
+import { UserType } from "@/helpers/types";
 import { useNavigate } from "react-router-dom";
 import { urls } from "@/helpers";
 import ArrowDropDown from "@mui/icons-material/ArrowDropDown";

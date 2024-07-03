@@ -1,4 +1,4 @@
-import { FormField } from "@/helpers/type";
+import { FormField } from "@/helpers/types";
 
 const loginFormFields: FormField[] = [
   {

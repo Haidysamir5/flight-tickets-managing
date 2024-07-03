@@ -1,19 +1,18 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ObjectSchema } from "yup";
+import { Controller, FieldValues, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   MutationFunction,
-  MutationOptions,
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { Controller, FieldValues, useForm } from "react-hook-form";
-import { StyledRegistration } from "./styles";
 import { Alert, Button, Grid, TextField, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { urls } from "@/helpers";
-import { AuthResponseType, FormDataType } from "./types";
-import { ObjectSchema } from "yup";
-import { FormField } from "@/helpers/type";
+import { FormField, FormDataType } from "@/helpers/types";
+import { AuthResponseType } from "./types";
+import { StyledRegistration } from "./styles";
 
 interface TFieldValues extends FieldValues {}
 

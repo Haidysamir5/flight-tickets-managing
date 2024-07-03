@@ -1,4 +1,3 @@
-import { formatDate } from "@/helpers";
 import { FlightItemType } from "../types";
 
 export default function createRowData(item: FlightItemType): {

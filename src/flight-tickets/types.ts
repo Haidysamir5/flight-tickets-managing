@@ -4,5 +4,3 @@ export interface FlightItemType {
   date: string;
   capacity: number;
 }
-
-type FlightItemKeyType = keyof FlightItemType;

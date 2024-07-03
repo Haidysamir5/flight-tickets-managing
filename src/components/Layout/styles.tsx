@@ -1,4 +1,4 @@
-import { Grid, Menu } from "@mui/material";
+import { Menu } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 
 export const StyledMenu = styled(Menu)(({ theme }) => ({
@@ -24,7 +24,7 @@ export const StyledMenu = styled(Menu)(({ theme }) => ({
       "&:active": {
         backgroundColor: alpha(
           theme.palette.primary.main,
-          theme.palette.action.selectedOpacity
+          theme.palette.action.selectedOpacity,
         ),
       },
     },
