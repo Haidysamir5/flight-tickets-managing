@@ -8,7 +8,8 @@ export const StyledGrid = styled(Grid)(({ theme }) => ({
     width: "100%",
   },
   "& h1": {
-    fontSize: 20,
+    fontSize: 30,
+    fontWeight: 600,
   },
   "& .details": {
     display: "flex",
