@@ -19,6 +19,7 @@ const schema = object().shape({
 export default function Login() {
   return (
     <AuthForm
+      title="Login"
       formFields={loginFormFields}
       mutationFn={loginUser}
       schema={schema}
@@ -26,7 +27,7 @@ export default function Login() {
       submitText="Login"
       Link={
         <Typography width="100%">
-          don't have account ?
+          don't have account ?{" "}
           <Link
             to={urls.register}
             color="primary.main"

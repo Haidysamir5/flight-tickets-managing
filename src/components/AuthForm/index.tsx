@@ -12,7 +12,7 @@ import { Alert, Button, Grid, TextField, Typography } from "@mui/material";
 import { urls } from "@/helpers";
 import { FormField, FormDataType } from "@/helpers/types";
 import { AuthResponseType } from "./types";
-import { StyledRegistration } from "./styles";
+import { StyledGrid } from "./styles";
 
 interface TFieldValues extends FieldValues {}
 
@@ -23,6 +23,7 @@ type Props = {
   schema: ObjectSchema<TFieldValues>;
   formFields: FormField[];
   submitText: string;
+  title: string;
 };
 export default function AuthForm({
   mutationFn,
@@ -31,6 +32,7 @@ export default function AuthForm({
   schema,
   formFields,
   submitText,
+  title,
 }: Props) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -76,23 +78,27 @@ export default function AuthForm({
 
   return (
     <Grid
-      sx={{ height: "70vh" }}
+      sx={{ minHeight: "70vh" }}
       container
       justifyContent="center"
       alignContent="center"
     >
-      <StyledRegistration container>
-        {showAlert && (
-          <Alert
-            onClose={() => setShowAlert(false)}
-            severity={alertData.state}
-            variant="filled"
-            sx={{ width: "100%" }}
-          >
-            {alertData.message}
-          </Alert>
-        )}
+      <StyledGrid container>
+        <Typography component="h1" fontSize="30px">
+          {" "}
+          {title}{" "}
+        </Typography>
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+          {showAlert && (
+            <Alert
+              onClose={() => setShowAlert(false)}
+              severity={alertData.state}
+              variant="filled"
+              sx={{ width: "100%" }}
+            >
+              {alertData.message}
+            </Alert>
+          )}
           <Grid container gap={3}>
             {formFields.map((input) => {
               return (
@@ -139,7 +145,7 @@ export default function AuthForm({
             {Link}
           </Grid>
         </form>
-      </StyledRegistration>
+      </StyledGrid>
     </Grid>
   );
 }

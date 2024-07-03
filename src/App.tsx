@@ -17,12 +17,14 @@ const queryClient = new QueryClient({
   },
 });
 
-queryClient.setQueryData(["accessToken"], () =>
-  localStorage.getItem("accessToken"),
-);
-queryClient.setQueryData(["user"], () =>
-  JSON.parse(localStorage.getItem("user") ?? ""),
-);
+const accessToken = localStorage.getItem("accessToken");
+const user = localStorage.getItem("user");
+
+if (accessToken)
+  queryClient.setQueryData(["accessToken"], () =>
+    localStorage.getItem("accessToken"),
+  );
+if (user) queryClient.setQueryData(["user"], () => JSON.parse(user));
 
 function App() {
   return (

@@ -19,6 +19,7 @@ const registerSchema = object().shape({
 export default function Registration() {
   return (
     <AuthForm
+      title="Register "
       formFields={registerFormFields}
       mutationFn={registerUser}
       schema={registerSchema}
