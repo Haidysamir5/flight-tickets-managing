@@ -94,7 +94,13 @@ export default function TicketForm({
                 name={input.name}
                 render={({ field }) => (
                   <Grid direction="column" gap={1} container>
-                    <TextField variant="outlined" {...input} {...field} />
+                    <TextField
+                      variant="outlined"
+                      label={input.label}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      {...field}
+                    />
                     <Typography color="error">
                       {errors[field.name]?.message as string}
                     </Typography>

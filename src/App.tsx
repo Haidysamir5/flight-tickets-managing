@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import {
@@ -22,6 +22,13 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+queryClient.setQueryData(["accessToken"], () =>
+  localStorage.getItem("accessToken")
+);
+queryClient.setQueryData(["user"], () =>
+  JSON.parse(localStorage.getItem("user") ?? "")
+);
 
 function App() {
   return (

@@ -1,6 +1,7 @@
-import { FieldValues } from "react-hook-form";
-
-interface FormFields extends FieldValues {}
+interface FormFields extends React.InputHTMLAttributes<any> {
+  label: string;
+  name: "code" | "capacity" | "date";
+}
 
 const flightFormFields: FormFields[] = [
   {
