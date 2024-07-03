@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { FlightItemType } from "./types";
 import { Grid, Typography, useTheme } from "@mui/material";

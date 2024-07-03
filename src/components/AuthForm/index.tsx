@@ -8,7 +8,7 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { Alert, Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Alert, Button, Grid, TextField, Typography } from "@mui/material";
 import { urls } from "@/helpers";
 import { FormField, FormDataType } from "@/helpers/types";
 import { AuthResponseType } from "./types";
