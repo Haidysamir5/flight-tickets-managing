@@ -8,7 +8,7 @@ import {
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
-import { Alert, Button, Grid, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { urls } from "@/helpers";
 import { FormField, FormDataType } from "@/helpers/types";
 import { AuthResponseType } from "./types";
@@ -85,20 +85,19 @@ export default function AuthForm({
     >
       <StyledGrid container>
         <Typography component="h1" fontSize="30px">
-          {" "}
-          {title}{" "}
+          {title}
         </Typography>
+        {showAlert && (
+          <Alert
+            onClose={() => setShowAlert(false)}
+            severity={alertData.state}
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {alertData.message}
+          </Alert>
+        )}
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
-          {showAlert && (
-            <Alert
-              onClose={() => setShowAlert(false)}
-              severity={alertData.state}
-              variant="filled"
-              sx={{ width: "100%" }}
-            >
-              {alertData.message}
-            </Alert>
-          )}
           <Grid container gap={3}>
             {formFields.map((input) => {
               return (
