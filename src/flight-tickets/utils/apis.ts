@@ -1,6 +1,6 @@
-import { FlightItemType } from "./types";
+import { FlightItemType } from "../types";
 
-const BASE_URL = "http://localhost:3009/tickets";
+const BASE_URL = "http://localhost:3009/flights";
 const headers = { "Content-type": "application/json" };
 
 export const createFlightTicket = async (
@@ -15,6 +15,13 @@ export const createFlightTicket = async (
 export const getFlightTickets = async () => {
   const response = await fetch(BASE_URL);
   return response.json();
+};
+
+export const getFlightTicket = async (
+  id: FlightItemType["id"],
+): Promise<FlightItemType> => {
+  const response = await fetch(`${BASE_URL}/${id}`);
+  return await response.json();
 };
 
 export const editFlightTicket = async (

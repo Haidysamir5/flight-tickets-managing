@@ -65,7 +65,7 @@ export default function AuthForm({
         localStorage.setItem("user", JSON.stringify(user));
 
         setTimeout(() => {
-          navigate(urls.home);
+          navigate(urls.flights);
         }, 1000);
       }
       setShowAlert(true);

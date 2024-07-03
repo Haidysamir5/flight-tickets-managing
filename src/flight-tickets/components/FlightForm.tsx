@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { number, object, string } from "yup";
 import flightFormFields from "../utils/flightFormFields";
 import { FlightItemType } from "../types";
-import { createFlightTicket, editFlightTicket } from "../apis";
+import { createFlightTicket, editFlightTicket } from "../utils/apis";
 import { useEffect } from "react";
 
 const ticketSchema = object().shape({
@@ -26,7 +26,7 @@ type Props = {
   state: "new" | "edit";
 };
 
-export default function TicketForm({
+export default function FlightForm({
   onFormSuccess,
   defaultValues,
   state,
@@ -37,7 +37,7 @@ export default function TicketForm({
     mutationFn: createFlightTicket,
     onSuccess: (data) => {
       queryClient.setQueryData(
-        ["tickets"],
+        ["flights"],
         (prevTickets: FlightItemType[] | undefined) =>
           prevTickets ? [data, ...prevTickets] : [data],
       );
@@ -49,7 +49,7 @@ export default function TicketForm({
     mutationFn: editFlightTicket,
     onSuccess: () => {
       queryClient.prefetchQuery({
-        queryKey: ["tickets"],
+        queryKey: ["flights"],
       });
       if (onFormSuccess)
         onFormSuccess(`ticket ${defaultValues.id} is edited successfully`);

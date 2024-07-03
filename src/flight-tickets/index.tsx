@@ -3,9 +3,9 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Grid, Button, Snackbar, Alert } from "@mui/material";
 import Modal from "@/components/Modal";
 import { formatDate } from "@/helpers";
-import TicketsList from "./components/TicketsList";
-import TicketForm from "./components/TicketForm";
-import { deleteFlightTicket, getFlightTickets } from "./apis";
+import FlightList from "./components/FlightList";
+import FlightForm from "./components/FlightForm";
+import { deleteFlightTicket, getFlightTickets } from "./utils/apis";
 import { FlightItemType } from "./types";
 
 export default function FlightTickets() {
@@ -21,7 +21,7 @@ export default function FlightTickets() {
   });
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["tickets"],
+    queryKey: ["flights"],
     queryFn: getFlightTickets,
   });
 
@@ -29,7 +29,7 @@ export default function FlightTickets() {
     mutationFn: deleteFlightTicket,
     onSuccess: (deletedId) => {
       queryClient.setQueryData(
-        ["tickets"],
+        ["flights"],
         (prevTickets: FlightItemType[] | undefined) =>
           prevTickets?.filter((ticket) => ticket.id !== deletedId) ||
           prevTickets,
@@ -67,7 +67,7 @@ export default function FlightTickets() {
       >
         + Add New
       </Button>
-      <TicketsList
+      <FlightList
         tickets={data}
         onEditTicket={onEditTicket}
         onDeleteTicket={onDeleteTicket}
@@ -93,7 +93,7 @@ export default function FlightTickets() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <TicketForm
+        <FlightForm
           onFormSuccess={onFormSuccess}
           defaultValues={formDefaultValues}
           state={formState}

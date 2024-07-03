@@ -13,13 +13,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { createRowData, crateTableColumns } from "@/flight-tickets/utils";
 import { FlightItemType } from "../types";
+import { Link } from "react-router-dom";
 
 type Props = {
   tickets: FlightItemType[];
   onEditTicket: (ticket: FlightItemType) => void;
   onDeleteTicket: (id: string) => void;
 };
-export default function TicketsList({
+export default function FlightList({
   tickets,
   onEditTicket,
   onDeleteTicket,
@@ -54,7 +55,10 @@ export default function TicketsList({
                     scope="row"
                     key={`body-cell-${cell.key}-`}
                   >
-                    {cell.label}
+                    <Link to={`flight/${ticket.id}`} style={{ color: "black" }}>
+                      {" "}
+                      {cell.label}
+                    </Link>
                   </TableCell>
                 );
               })}
